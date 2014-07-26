@@ -1,6 +1,6 @@
 {
   "name": "oauth-reverse-proxy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node.js server and Express/Connect middleware for reverse proxying OAuth web services.",
   "main": "index.js",
   "scripts": {
