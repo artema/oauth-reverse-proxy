@@ -3,6 +3,8 @@ oauth-reverse-proxy
 
 Express/Connect middleware for reverse proxying OAuth 1 web services. Can be used to perform OAuth-protected service calls without exposing consumer and token key pairs on the client side.
 
+`npm install oauth-reverse-proxy`
+
 # Usage
 
 	var app = require('express')();
@@ -26,10 +28,17 @@ Express/Connect middleware for reverse proxying OAuth 1 web services. Can be use
 			tokenSecret: 'Kd75W4OQfb2oJTV0vzGzeXftVAwgMnEK9MumzYcM'
 		}
 	}));
-  
+
+`http://mywebsite.com/api/statuses/user_timeline.json` will proxy `https://api.twitter.com/1.1/statuses/user_timeline.json`.
+
 `endpoint`: Website path that will be used as an endpoint for API requests.
+
 `target`: Target API URL.
-`provider`: OAuth credentials provider. A Function that will be invoked for each API request. Takes `req` argument with the current request object. Must return a promise with a credentials object, `{}` for unauthorized API calls or `null` to send a 401 error to a client.
+
+`provider`: OAuth credentialsprovider. A Function that will be invoked for each API request. Takes `req` argument with the current request object. Must return a promise with a credentials object, `{}` for unauthorized API calls or `null` to send a 401 error to a client.
+
 `credentials` (optional): static OAuth credentials to use for all requests.
+
 `signatureMethod` (optional): OAuth signature method. Defaults to `HMAC-SHA1`.
+
 `keepCookies` (optional): Keep cookies header in API requests. Defaults to `false`.
